@@ -39,10 +39,13 @@ I will put it in basic words first it puts patches on ur kernel first time u run
 - if u screw up ur device ur on ur own
 # How to use?
 
-ez!
+
 **NOTE: On linux usbmuxd has a issue and u need to do sudo systemctl stop usbmuxd && sudo usbmuxd -f -p in a second terminal and dont close that one while using meowc0ver**
+<br>
 Linux
+<br>
 semi-tethered: sudo ./meowc0ver.sh --tweaks iosversion --semi-tethered
+<br>
 tethered: sudo ./meowc0ver.sh --tweaks iosversion
 
 mac is same but without sudo
