@@ -1,31 +1,25 @@
 <h1  align="center">
-  <img  src="https://avatars.githubusercontent.com/u/114239186?s=100&v=4"  alt="palera1n logo">
-  <p>palera1n</p>
+  <img  src="https://avatars.githubusercontent.com/u/124920598?s=400&u=20b77b2b9fca9702860f9f66b129ee5dde165987&v=4"  alt="VERY COOL CAT">
+  <p>meowc0ver</p>
 </h1>
-<h3  align="center">An iOS 15.0-16.3 work-in-progress, (semi-)tethered checkm8 jailbreak.</h3>
-<p  align="center">
-  <strong><a  href="CHANGELOG.md">Change Log</a></strong>
-  •
-  <strong><a  href="https://dsc.gg/palera1n">Discord</a></strong>
-  •
-  <strong><a  href="https://twitter.com/palera1n">Twitter</a></strong>
-</p>
+<h3  align="center">A iOS 15.0-16.3 WIP, (semi-)tethered checkm8 jailbreak.</h3>
+
 
 # How does it work?
 
-It boots the device with multiple patches required. On first run, it'll boot a ramdisk which dumps your onboard blob, creates a fakefs (if using semi-tethered), installs the loader app, and patches your kernel.
+I will put it in basic words first it puts patches on ur kernel first time u run it it boots a ramdisk that dumps stuff and creates a fakefs! (semi-tethered)
 
 # Requirements
 
 - A checkm8 vulnerable iOS device on iOS 15 or 16 (A8-A11)
 	- The device must be on iOS 15.0-16.3
-		- **palera1n will never work with devices above the iPhone X/A11.** Please stop asking in the Discord, and remember: *this is mainly a developer jailbreak*
+		- "dont ask for above stupid"
 	-	If you want the device to be semi-tethered, **you will need 5-10GB of space** for the fakefs. This means that 16GB devices cannot be semi-tethered
 	- ### A10 and A11 devices
-		- If you are on A10(X), use [checkp4le](https://github.com/guacaplushy/checkp4le) instead for full SEP functionality (Passcode, TouchID, Apple Pay)
+		- If you are on A10(X), use [checkp4le](https://github.com/guacaplushy/checkp4le)
 		- On A11, **you must disable your passcode while in the jailbroken state**.
 		- On iOS 16 A11, if you EVER enabled a passcode on 16, you have to reset through the settings app/restore with a computer
-		- In the meantime, we recommend [FakePass](https://repo.alexia.lol/depictions/net.cadoth.fakepass) if you would like a passcode
+		- use [FakePass](https://repo.alexia.lol/depictions/net.cadoth.fakepass) for fake passcode 
 
 - A **USB-A to Lightning cable**
 	- USB-C cables
