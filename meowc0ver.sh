@@ -107,7 +107,7 @@ parse_opt() {
             serial=1
             ;;
         --dfu)
-            echo "[!] DFU mode devices are now automatically detected and --dfu is deprecated"
+            echo "buddy whar it auto detects dfu stuff"
             ;;
         --restorerootfs)
             restorerootfs=1
