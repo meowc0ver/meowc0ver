@@ -12,7 +12,7 @@ cd ..
 
 {
 
-echo "[*] Command ran:`if [ $EUID = 0 ]; then echo " sudo"; fi` ./palera1n.sh $@"
+echo "[*] Command ran:`if [ $EUID = 0 ]; then echo " sudo"; fi` ./meowc0ver.sh $@"
 
 # =========
 # Variables
@@ -59,7 +59,7 @@ step() {
 print_help() {
     cat << EOF
 Usage: $0 [Options] [ subcommand | iOS version ]
-iOS 15.0-16.3 jailbreak tool for checkm8 devices
+iOS 15.0-16.3 jailbreak tool for checkm8 devices hello from ariez!
 
 Options:
     --help              Print this help
@@ -375,8 +375,8 @@ trap _exit_handler EXIT
 # Start
 # ============
 
-echo "palera1n | Version $version-$branch-$commit"
-echo "Made with ❤ by Nebula, Mineek, Nathan, llsc12, Ploosh, and Nick Chan"
+echo "meowc0ver | Version $version-$branch-$commit"
+echo "Made with love by ariez"
 echo ""
 
 version=""
@@ -534,7 +534,7 @@ function _wait_for_device() {
         version=${version:-$(_info normal ProductVersion)}
         arch=$(_info normal CPUArchitecture)
         if [ "$arch" = "arm64e" ]; then
-            echo "[-] palera1n doesn't, and never will, work on non-checkm8 devices"
+            echo "[-] meowc0ver doesn't, and never will, work on non-checkm8 devices"
             exit
         fi
         echo "Hello, $(_info normal ProductType) on $version!"
@@ -551,7 +551,7 @@ function _wait_for_device() {
     deviceid=$(_info recovery PRODUCT)
 
     if (( 0x8020 <= cpid )) && (( cpid < 0x8720 )); then
-        echo "[-] palera1n doesn't, and never will, work on non-checkm8 devices"
+        echo "[-] meowc0ver doesn't, and never will, work on non-checkm8 devices"
         exit
     fi
 
@@ -1107,7 +1107,7 @@ echo "If this is your first time jailbreaking, open the new palera1n app, then p
 echo "Otherwise, press Do All in the settings section of the app"
 echo "If you have any issues, please first check the common-issues.md document for common issues"
 if [ "$china" != "1" ]; then
-	echo "If that list doesn't solve your issue, join the Discord server and ask for help: https://dsc.gg/palera1n"
+	echo "fr china"
 fi
 echo "Enjoy!"
 
