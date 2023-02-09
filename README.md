@@ -4,6 +4,9 @@
 </h1>
 <h3  align="center">A iOS 15.0-16.3 WIP, (semi-)tethered checkm8 jailbreak.</h3>
 
+# FAQ
+Why do you use palera1n's app and sources?
+We use the palera1n app and sources because they are already made for iOS 15 and 16 no point in really making another repo.
 
 # How does it work?
 
@@ -19,25 +22,28 @@ I will put it in basic words first it puts patches on ur kernel first time u run
 		- If you are on A10(X), use [checkp4le](https://github.com/guacaplushy/checkp4le)
 		- On A11, **you must disable your passcode while in the jailbroken state**.
 		- On iOS 16 A11, if you EVER enabled a passcode on 16, you have to reset through the settings app/restore with a computer
-		- use [FakePass](https://repo.alexia.lol/depictions/net.cadoth.fakepass) for fake passcode 
+		- use [FakePass](https://repo.alexia.lol/depictions/net.cadoth.fakepass) for fake passcode but it acts like its a real passcode
 
 - A **USB-A to Lightning cable**
 	- USB-C cables
-		- ![USB-C cable why bad explanation](https://media.discordapp.net/attachments/1065789142803435530/1065850603995148298/image.png?width=362&height=433)
+		- yeah no usb-c never supported ever 
 
 - A Linux or macOS computer
 	- Python 3 must be installed.
 	- This must be a **physical computer**. Virtual machines **do not work.**
-	- AMD CPUs have an issue [with (likely) their USB controllers] that causes them to have a very low success rate with checkm8. It is not recommended that you use them with palera1n.
+	- amd cpus are dumb [with (likely) their USB controllers] that causes them to have a very low success rate with checkm8. It is not recommended that you use them with meowc0ver.
 		- If your device does not successfully jailbreak, try a computer with an Intel or other CPU
 
 # Warning
 
-- We are **NOT** responsible for any data loss, or the result of a device being bricked. The user of this program accepts responsibility should something happen to their device. While nothing should happen, jailbreaking has risks in itself.
-
+- if u screw up ur device ur on ur own
 # How to use?
 
-A tutorial can be found [here](https://ios.cfw.guide/installing-palera1n).
+ez!
+** NOTE: On linux usbmuxd has a issue and u need to do sudo systemctl stop usbmuxd && sudo usbmuxd -f -p in a second terminal and dont close that one while using meowc0ver **
+Linux[
+semi-tethered: sudo ./meowc0ver.sh --tweaks iosversion --semi-tethered
+tethered: sudo ./meowc0ver.sh --tweaks iosversion
 
 # Issues
 
@@ -45,40 +51,13 @@ A tutorial can be found [here](https://ios.cfw.guide/installing-palera1n).
 
 ## Still need help?
 
-If you still need help, **please** join our Discord. We disabled issues due to the flood of spam, and difficulty to respond in general. We are much more comfortable on Discord.
+Open a issue and we will help you asap!
 
-Please, please, please, provide necessary info:
 
-- iOS version and device (eg. iPhone 6s 15.3.1, iPhone X 16.0)
-- Computer's OS and version (eg. Ubuntu 22.04, macOS 13.0)
-- The command you ran
-
--  **Full log from the logs folder**
 
 **DO NOT** harass tweak devs if tweaks don't work. Refer to [here](https://github.com/itsnebulalol/ios15-tweaks) for compatiblity.
 
-You may join [here](https://dsc.gg/palera1n).
 
-# Patreons
-
-Thank you so much to our Patrons that make the future development possible! You may sub [here](https://patreon.com/palera1n), if you'd like to.
-
-<a href="https://github.com/samh06"><img width=64 src="https://user-images.githubusercontent.com/18669106/206333607-881d7ca1-f3bf-4e18-b620-25de0c527315.png"></img></a>
-<a href="https://havoc.app"><img width=64 src="https://docs.havoc.app/img/standard_icon.png"></img></a>
-<a href="https://twitter.com/yyyyyy_public"><img width=64  src="https://pbs.twimg.com/profile_images/1429332550112079876/dQQgsURc_400x400.jpg"></img></a>
-<a href="https://twitter.com/0xSp00kyb0t"><img width=64  src="https://pbs.twimg.com/profile_images/1603601553226620935/1t4yD1bD_400x400.jpg"></img></a>
-<a href="https://chariz.com"><img width=64 src="https://chariz.com/img/favicon.png"></img></a>
-<a href="https://twitter.com/stars6220"><img width=64  src="https://pbs.twimg.com/profile_images/1611846176260689923/_n_js7gq_400x400.jpg"></img></a>
-<a href="https://github.com/beast9265"><img width=64 src="https://avatars.githubusercontent.com/u/79794946?v=4"></img></a>
-<a href="https://twitter.com/0x7FF7"><img width=64 src="https://pbs.twimg.com/profile_images/1616888462665306113/AsjJvtyt_400x400.jpg"></img></a>
-<a href="https://sideloadly.io/"><img width=64 src="https://sideloadly.io/icon.png"></img></a>
-<a href="https://blog.stevesec.com/"><img width=64 src="https://blog.stevesec.com/img/avatar.jpg"></img></a>
-
-# Repos
-
-### Tweaks mode
-
-All repos work when using tweaks mode because it uses normal Procursus and not rootless.
 
 ### Rootless
 
