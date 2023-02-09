@@ -44,8 +44,8 @@ Add the universe repo by using the command below:
 Then, try again, and it should be fixed.
 
 ## \"Booted device\" but not booted
-This may happen when the downloading and patching process is interrupted. Please run `./palera1n.sh clean` (use with `sudo` if on Linux), then try again.
-If that doesn't fix it, it may be caused by an update from the Procursus repo. The quickest way to fix it is to [restore rootfs](https://ios.cfw.guide/removing-palera1n/). Alternatively, you can manually restore `/usr/libexec/dirs_cleaner` from the rootfs snapshot using the SSHRD script.
+This may happen when the downloading and patching process is interrupted. Please run `./meowc0ver.sh clean` (use with `sudo` if on Linux), then try again.
+
 
 ## NewTerm not launching
 Install NewTerm 2 from [https://apt.itsnebula.net/](https://apt.itsnebula.net/ "https://apt.itsnebula.net/") or get NewTerm3 beta.
@@ -69,17 +69,17 @@ You ran out of RAM on the Linux Live CD.
 Ways to fix the issue, ordered by which to try first: 
 1. Close some apps, like Discord
 2. Attempt a shallow clone, `git clone --depth=1` in place of `git clone`
-3. Clone palera1n onto persistent storage[note 1]
+3. Clone meowc0ver onto persistent storage[note 1]
 4. Install Linux onto your computer.
 
 Note 1: How to use persistent storage from Linux Live, with terminal
- 1. If you have already cloned palera1n, please delete it! Usually this can be done with `sudo rm -rf ~/palera1n` (assuming palera1n cloned into home directory)
+ 1. If you have already cloned meowc0ver, please delete it! Usually this can be done with `sudo rm -rf ~/meowc0ver` (assuming meowc0ver cloned into home directory)
  2. You may want to install ntfs-3g first, on Ubuntu this can be done by running `sudo apt install ntfs-3g`
  3. Run `sudo lsblk` to list your disks
  4. Locate the persistent storage you want to use, for example a Windows C: drive would be of type "ntfs" and at least 10 GB in size, take a note of the device name, which starts with /dev
  5. Mount disk onto `/mnt` *(example, please don’t paste as is)*: `sudo mount -t ntfs /dev/sda3 /mnt`
  6. Change the working directory into `/mnt`: `cd /mnt`
- 7. Try to clone palera1n again
+ 7. Try to clone meowc0ver again
 
 Note 2: Most Linux Installers will set  up swap areas automatically during the install if you use guided partitioning (if such option exists)
 In order to create a 2GB swap area as root:
@@ -112,9 +112,7 @@ Example image:
 **Note**: Some tweaks (e.g. Watusi) are known to not work with this method.
 
 ## Loader app not appearing
-[restorerootfs](https://ios.cfw.guide/removing-palera1n/) and rejailbreak. If neither of these help, make sure you're waiting enough time (15-30 seconds).
-On iPads, the loader may not show up. You can try to open it using [this shortcut](https://www.icloud.com/shortcuts/8cd5f489c8854ee0ab9ee38f2e62f87d). If other apps don’t appear alongside the loader, try installing TrollHelper from [Havoc](https://havoc.app), and install TrollStore.
-
+restorerootfs 
 ## Your local changes would be overwritten by checkout
 Run the following commands, and then try again:
 - `cd ramdisk`
@@ -129,7 +127,7 @@ Try the following steps to fix the issue:
 - Trust the computer on your device if needed
 - Run `idevicepair pair` again (use sudo if on Linux)
 
-Alternatively, you can manually [enter recovery mode](https://support.apple.com/en-us/HT201263 "enter recovery mode") before starting palera1n.
+Alternatively, you can manually [enter recovery mode](https://support.apple.com/en-us/HT201263 "enter recovery mode") before starting meowc0ver.
 
 ## Package is in a very bad inconsistent state
 You can fix this by running this command in a terminal:
@@ -139,7 +137,7 @@ You can fix this by running this command in a terminal:
 ## Error installing bootstrap. Status: \-1
 You're not jailbroken. Sideloading the loader app on its own **will not work**.
 
-Please run the palera1n script on your computer to jailbreak your device.
+Please run the meowc0ver script on your computer to jailbreak your device.
 
 ## jbinit DIED!
 Your device may get stuck on a verbose boot screen, and if you look closely you'll see a "jbinit DIED!" error near the top.
@@ -158,7 +156,7 @@ You may be encountering some issue related to panics and the loader “not appea
 ## libhooker wants to install?
 **Remove the Chimera and Odyssey repo immediately!**
 
-These repos are not meant to be used with palera1n and are able to break your jailbreak if you install anything from them.
+These repos are not meant to be used with meowc0ver and are able to break your jailbreak if you install anything from them.
 
 ## Pressing \"install\" on each jb
 **DO NOT DO THIS.** It resets your package lists and will likely break your jailbreak install eventually. Instead, press the gear icon, and then press Do All.
@@ -170,7 +168,7 @@ Example image:
 ![image depicting blank icons for apps](https://media.discordapp.net/attachments/1028693596469207191/1065709922207150080/1A4B5107-DCFA-42E6-AC2D-1106CD854FC2.jpg?width=830&height=434)
 
 ## Device boots out of DFU
-Make sure to use a USB-A cable, and enter recovery mode first before entering DFU (you can use `./palera1n.sh dfuhelper` for this - use `sudo` if on Linux).
+Make sure to use a USB-A cable, and enter recovery mode first before entering DFU (you can use `./meowc0ver.sh dfuhelper` for this - use `sudo` if on Linux).
 
 ## How to fix RocketBootstrap
 If you have Ryan Petrich's RocketBootstrap installed on iOS 15 or above, it may cause nearly every app to crash or even respring loops, especially when Cephei is also installed. To fix this, follow the steps below.
@@ -209,9 +207,7 @@ Example image:
 ![image depicting sb issue](https://media.discordapp.net/attachments/1028693596469207191/1070014279639650345/image.png)
 
 ## End-of-central-directory signature not found
-If the unzip error message it cannot find "`palera1n.zip(.ZIP, period.)`", you are running an outdated version of palera1n and need to update using `git pull`. If this doesn't work, reclone the palera1n repository by running `cd .. && sudo rm -rf palera1n && sudo git clone --recursive --depth=1 --shallow-submodules https://github.com/palera1n/palera1n && cd palera1n`. 
-
-Otherwise, this error most likely indicates a problem with your internet connection, and you simply need to try running palera1n again.
+Reclone meowc0ver
 
 ## Filza crashing on launch
 Install the latest version of Filza from the [TIGI Software repo](https://www.tigisoftware.com/repo). **The version on BigBoss is outdated**. You do not need AutoSign or FilzaFixer anymore.
@@ -224,7 +220,7 @@ Install the latest version of Filza from the [TIGI Software repo](https://www.ti
 Then try again.
 
 ## Library not loaded: /usr/lib/libSystem.B.dylib
-This usually means the fakefs wasn't created properly. It might be left over from a restore. [Restore rootfs](https://ios.cfw.guide/removing-palera1n/) and try jailbreaking again.
+This usually means the fakefs wasn't created properly. It might be left over from a restore. restorerootfs and try jailbreaking again.
 
 ## pip error: legacy-install-failure
 - Ubuntu/Debian
@@ -236,4 +232,4 @@ This usually means the fakefs wasn't created properly. It might be left over fro
 
 <br>
 
-### If none of these solve your issue, please join the [Discord server](https://dsc.gg/palera1n).
+
