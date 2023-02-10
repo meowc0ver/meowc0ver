@@ -1,0 +1,19 @@
+[*] Command ran: sudo ./palera1n.sh --dfuhelper
+palera1n | Version 1.4.1-main-0be469d
+Made with ❤ by Nebula, Mineek, Nathan, llsc12, Ploosh, and Nick Chan
+
+[-] gaster not installed. Press any key to install it, or press ctrl + c to cancel
+Archive:  gaster-Linux.zip
+  inflating: gaster                  
+Submodule 'ramdisk' (https://github.com/palera1n/ramdisk) registered for path 'ramdisk'
+Cloning into '/home/ariez/palera1n/ramdisk'...
+Submodule path 'ramdisk': checked out '2cff81b1e91846a31bf69eafdb5a3ac366f80877'
+[*] Waiting for devices
+[*] Detected recovery mode device
+[*] Getting device info...
+[*] Running DFU helper
+[*] Press any key when ready for DFU mode
+[K[1;36mGet ready (3)[K[1;36mGet ready (2)[K[1;36mGet ready (1)[K[1;36mGet ready (0)[0m
+[K[1;36mHold volume down + side button (4)[K[1;36mHold volume down + side button (3)[K[1;36mHold volume down + side button (2)[K[1;36mHold volume down + side button (1)[K[1;36mHold volume down + side button (0)[0m
+[K[1;36mRelease side button, but keep holding volume down (10)[K[1;36mRelease side button, but keep holding volume down (9)[K[1;36mRelease side button, but keep holding volume down (8)[K[1;36mRelease side button, but keep holding volume down (7)[K[1;36mRelease side button, but keep holding volume down (6)[K[1;36mRelease side button, but keep holding volume down (5)[K[1;36mRelease side button, but keep holding volume down (4)[K[1;36mRelease side button, but keep holding volume down (3)[0m
+[*] Device entered DFU!
