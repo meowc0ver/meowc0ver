@@ -14,9 +14,7 @@ cd ..
 
 echo "[*] Command ran:`if [ $EUID = 0 ]; then echo " sudo"; fi` ./meowc0ver.sh $@"
 
-# =========
-# Variables
-# =========
+
 ipsw=""
 network_timeout=-1 # seconds; -1 - unlimited
 version="1.4.1"
@@ -29,9 +27,7 @@ arg_count=0
 disk=8
 fs=disk0s1s$disk
 
-# =========
-# Functions
-# =========
+
 remote_cmd() {
     "$dir"/sshpass -p 'alpine' ssh -o StrictHostKeyChecking=no -p6413 root@localhost "$@"
 }
@@ -59,7 +55,7 @@ step() {
 print_help() {
     cat << EOF
 Usage: $0 [Options] [ subcommand | iOS version ]
-iOS 15.0-16.3 jailbreak tool for checkm8 devices hello from ariez!
+iOS 15.0-16.3 jailbreak tool for checkm8 devices!
 
 Options:
     --help              Print this help
@@ -69,8 +65,6 @@ Options:
     --skip-fakefs       Don't create the fakefs even if --semi-tethered is specified
     --no-baseband       Indicate that the device does not have a baseband
     --restorerootfs     Remove the jailbreak (Actually more than restore rootfs)
-    --debug             Debug the script
-    --china             Enable Mainland China specific workarounds (启用对中国大陆网络环境的替代办法)
     --ipsw              Specify a custom IPSW to use
     --serial            Enable serial output on the device (only needed for testing with a serial cable)
 
