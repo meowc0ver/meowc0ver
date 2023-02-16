@@ -50,11 +50,9 @@ tethered: sudo ./meowc0ver.sh --tweaks iosversion
 
 mac is same but without sudo
 
-# Issues
 
-**Please first check the [common issues](https://github.com/palera1n/palera1n/blob/main/COMMONISSUES.md) document.**
 
-## Still need help?
+## Need help?
 
 Open a issue and we will help you asap!
 
