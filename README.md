@@ -4,9 +4,6 @@
 </h1>
 <h3  align="center">the cutest jailbreak ever!</h3>
 
-# FAQ
-Why do you use palera1n's app and sources?
-We use the palera1n app and sources because they are already made for iOS 15 and 16 no point in really making another repo.
 
 # How does it work?
 
