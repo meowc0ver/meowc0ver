@@ -1,12 +1,9 @@
 <h1  align="center">
-  <img  src="https://avatars.githubusercontent.com/u/124920598?s=400&u=20b77b2b9fca9702860f9f66b129ee5dde165987&v=4"  alt="VERY COOL CAT">
-  <p>meowc0ver</p>
+  <img  src="https://avatars.githubusercontent.com/u/111437912?v=4"  alt="VERY COOL CAT">
+  <p>meowra1n</p>
 </h1>
-<h3  align="center">A iOS 15.0-16.3 WIP, (semi-)tethered checkm8 jailbreak.</h3>
+<h3  align="center">the cutest jailbreak ever!</h3>
 
-# FAQ
-Why do you use palera1n's app and sources?
-We use the palera1n app and sources because they are already made for iOS 15 and 16 no point in really making another repo.
 
 # How does it work?
 
@@ -31,7 +28,7 @@ I will put it in basic words first it puts patches on ur kernel first time u run
 - A Linux or macOS computer
 	- Python 3 must be installed.
 	- This must be a **physical computer**. Virtual machines **do not work.**
-	- amd cpus are dumb [with (likely) their USB controllers] that causes them to have a very low success rate with checkm8. It is not recommended that you use them with meowc0ver.
+	- amd cpus are dumb [with (likely) their USB controllers] that causes them to have a very low success rate with checkm8. It is not recommended that you use them with meowra1n.
 		- If your device does not successfully jailbreak, try a computer with an Intel or other CPU
 
 # Warning
@@ -40,13 +37,13 @@ I will put it in basic words first it puts patches on ur kernel first time u run
 # How to use?
 
 
-**NOTE: On linux usbmuxd has a issue and u need to do sudo systemctl stop usbmuxd && sudo usbmuxd -f -p in a second terminal and dont close that one while using meowc0ver**
+**NOTE: On linux usbmuxd has a issue and u need to do sudo systemctl stop usbmuxd && sudo usbmuxd -f -p in a second terminal and dont close that one while using meowra1n**
 <br>
 Linux
 <br>
-semi-tethered: sudo ./meowc0ver.sh --tweaks iosversion --semi-tethered
+semi-tethered: sudo ./meowra1n.sh --tweaks iosversion --semi-tethered
 <br>
-tethered: sudo ./meowc0ver.sh --tweaks iosversion
+tethered: sudo ./meowra1n.sh --tweaks iosversion
 
 mac is same but without sudo
 

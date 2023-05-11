@@ -55,25 +55,23 @@ step() {
 print_help() {
     cat << EOF
 Usage: $0 [Options] [ subcommand | iOS version ]
-iOS 15.0-16.3 jailbreak tool for checkm8 devices!
+Meow! The best iOS 15.0-16.3 jailbreak tool for checkm8 devices.
 
 Options:
-    --help              Print this help
-    --tweaks            Enable tweaks
-    --semi-tethered     When used with --tweaks, make the jailbreak semi-tethered instead of tethered
-    --dfuhelper         A helper to help get A11 devices into DFU mode from recovery mode
-    --skip-fakefs       Don't create the fakefs even if --semi-tethered is specified
-    --no-baseband       Indicate that the device does not have a baseband
-    --restorerootfs     Remove the jailbreak (Actually more than restore rootfs)
-    --ipsw              Specify a custom IPSW to use
-    --serial            Enable serial output on the device (only needed for testing with a serial cable)
+    --help              p-pwint this h-hewp
+    --tweaks            e-enabwe tweaks
+    --semi-tethered    when u-used with --tweaks, (U ﹏ U) m-make the jaiwbweak s-semi-tethewed instead o-of t-tethewed
+    --dfuhelper         a-a h-hewpew to hewp get a11 devices into d-dfu m-mode f-fwom w-wecovewy m-mode
+    --skip-fakefs       d-don't cweate t-the f-fakefs even if --semi-tethewed i-is specified
+    --no-baseband       i-indicate that the d-device d-does nyot h-have a baseband
+    --restorerootfs     wemove the jaiwbweak (actuawwy m-mowe than westowe wootfs)
+    --ipsw              specify a-a c-custom i-ipsw to use
+    --serial            enabwe sewiaw o-output o-on t-the d-device (onwy nyeeded f-fow t-testing with a s-sewiaw c-cabwe)
+    dfuhelper           an awias fow --dfuhewpew
+    clean               dewetes the cweated boot fiwes
 
-Subcommands:
-    dfuhelper           An alias for --dfuhelper
-    clean               Deletes the created boot files
-
-The iOS version argument should be the iOS version of your device.
-It is required when starting from DFU mode.
+the i-ios v-vewsion awgument s-shouwd be t-the i-ios v-vewsion of y-youw d-device.
+it is wequiwed when s-stawting f-fwom d-dfu mode.
 EOF
 }
 
@@ -101,7 +99,7 @@ parse_opt() {
             serial=1
             ;;
         --dfu)
-            echo "buddy whar it auto detects dfu stuff"
+            echo "sowwy t-this c-command i-is n-nyot usefuw onwy t-this kawaii~ e-echo message"
             ;;
         --restorerootfs)
             restorerootfs=1
@@ -123,7 +121,7 @@ parse_opt() {
             exit 0
             ;;
         *)
-            echo "[-] Unknown option $1. Use $0 --help for help."
+            echo "[X] unknown o-option $1. use $0 --help f-fow hewp."
             exit 1;
     esac
 }
@@ -152,7 +150,7 @@ parse_cmdline() {
         elif [[ $arg == http* ]]; then
             continue
         else
-            echo "[-] Too many arguments. Use $0 --help for help.";
+            echo "[X] too m-many a-awguments. 🥺 use $0 --hewp fow h-hewp.";
             exit 1;
         fi
     done
@@ -184,7 +182,7 @@ _info() {
 _pwn() {
     pwnd=$(_info recovery PWND)
     if [ "$pwnd" = "" ]; then
-        echo "[*] Pwning device"
+        echo "[*] pwning device"
         "$dir"/gaster pwn
         sleep 2
         #"$dir"/gaster reset
@@ -237,7 +235,7 @@ get_device_mode() {
     if [ "$device_count" = "0" ]; then
         device_mode=none
     elif [ "$device_count" -ge "2" ]; then
-        echo "[-] Please attach only one device" > /dev/tty
+        echo "[-] pwease attach o-onwy one device" > /dev/tty
         kill -30 0
         exit 1;
     fi
@@ -269,19 +267,19 @@ _wait() {
 dfuhelper_first_try=true
 _dfuhelper() {
     if [ "$(get_device_mode)" = "dfu" ]; then
-        echo "[*] Device is already in DFU"
+        echo "[*] device i-is awweady in d-dfu"
         return
     fi
 
     local step_one;
     deviceid=$( [ -z "$deviceid" ] && _info normal ProductType || echo $deviceid )
     if [[ "$1" = 0x801* && "$deviceid" != *"iPad"* ]]; then
-        step_one="Hold volume down + side button"
+        step_one="howd v-vowume down + side b-button"
     else
-        step_one="Hold home + power button"
+        step_one="howd h-home + p-powew button"
     fi
     if $dfuhelper_first_try; then
-        echo "[*] Press any key when ready for DFU mode"
+        echo "[*] pwess a-any key w-when weady fow d-dfu mode"
         read -n 1 -s
         dfuhelper_first_try=false
     fi
@@ -291,17 +289,17 @@ _dfuhelper() {
     "$dir"/irecovery -c "reset" &
     wait
     if [[ "$1" = 0x801* && "$deviceid" != *"iPad"* ]]; then
-        step 10 'Release side button, but keep holding volume down'
+        step 10 'wewease s-side b-button,but keep h-howding vowume down'
     else
-        step 10 'Release power button, but keep holding home button'
+        step 10 'wewease powew b-button, b-but k-keep h-howding h-home b-button'
     fi
     sleep 1
     
     if [ "$(get_device_mode)" = "dfu" ]; then
-        echo "[*] Device entered DFU!"
+        echo "[*] good j-job y-youw device i-is in dfu m-mode! -.- you awe nyow k-kawaii~"
         dfuhelper_first_try=true
     else
-        echo "[-] Device did not enter DFU mode"
+        echo "[-] im so sowwy b-but t-twy again u-uw d-device is n-nyot in d-dfu :3"
         return -1
     fi
 }
@@ -324,9 +322,9 @@ function _network() {
 
 function _check_network_connection() {
     if ! _network; then
-        echo "[*] Waiting for network"
+        echo "[*] waiting f-fow nyetwowk"
         if ! _wait_for $network_timeout _network; then
-            echo "[-] Network is unreachable. Check your connection and try again"
+            echo "[-] uw nyetwowk i-is n-nyot wowking sadwy u can t-twy to f-fix i-it t-then t-twy a-again :3"
             exit 1
         fi
     fi
@@ -349,7 +347,7 @@ _exit_handler() {
     fi
 
     [ $? -eq 0 ] && exit
-    echo "[-] An error occurred"
+    echo "[-] something went w-wwong! mya n-nyya~"
 
     if [ -d "logs" ]; then
         cd logs
@@ -357,7 +355,7 @@ _exit_handler() {
         cd ..
     fi
 
-    echo "[*] A failure log has been made. If you're going ask for help, please attach the latest log."
+    echo "[*] owo a-a faiwuwe w-wog w-was m-made! mya u can w-wook t-thwough thewe and twy to fix it!"
 }
 trap _exit_handler EXIT
 
@@ -369,8 +367,8 @@ trap _exit_handler EXIT
 # Start
 # ============
 
-echo "meowc0ver | Version $version-$branch-$commit"
-echo "Made with love by ariez"
+echo "meowra1n | vewsion $version-$branch-$commit"
+echo "the m-most k-kawaii~ jaiwbweak!"
 echo ""
 
 version=""
@@ -391,7 +389,7 @@ fi
 
 for cmd in curl unzip python3 git ssh scp killall sudo grep pgrep ${linux_cmds}; do
     if ! command -v "${cmd}" > /dev/null; then
-        echo "[-] Command '${cmd}' not installed, please install it!";
+        echo "[-] command '${cmd}' not i-instawwed, p-pwease i-instaww it!";
         cmd_not_found=1
     fi
 done
@@ -405,7 +403,7 @@ if [ -e "$dir"/gaster ]; then
 fi
 
 if [ ! -e "$dir"/gaster ]; then
-    echo '[-] gaster not installed. Press any key to install it, or press ctrl + c to cancel'
+    echo '[-] gastew n-nyot i-instawwed. (U ᵕ U❁) p-pwess a-any key to i-instaww i-it, :3 ow pwess c-ctww + c to cancew'
     read -n 1 -s
     _check_network_connection
     curl -sLO https://static.palera.in/deps/gaster-"$os".zip
@@ -416,7 +414,7 @@ fi
 
 # Check for pyimg4
 if ! python3 -c 'import pkgutil; exit(not pkgutil.find_loader("pyimg4"))'; then
-    echo '[-] pyimg4 not installed. Press any key to install it, or press ctrl + c to cancel'
+    echo '[-] pyimg4 n-nyot instawwed. nyaa~~ pwess any k-key t-to i-instaww it, (ˆ ﻌ ˆ)♡ o-ow pwess c-ctww + c t-to c-cancew'
     read -n 1 -s
     _check_network_connection
     python3 -m pip install pyimg4
@@ -453,65 +451,65 @@ fi
 
 if [ "$clean" = "1" ]; then
     rm -rf boot* work .tweaksinstalled
-    echo "[*] Removed the created boot files"
+    echo "[*] wemoved the cweated b-boot fiwes"
     exit
 fi
 
 if [ -z "$tweaks" ] && [ "$semi_tethered" = "1" ]; then
-    echo "[!] --semi-tethered may not be used with rootless"
-    echo "    Rootless is already semi-tethered"
-    >&2 echo "Hint: to use tweaks on semi-tethered, specify the --tweaks option"
+    echo "[!] --semi-tethewed m-may n-nyot b-be u-used with w-wootwess"
+    echo "    wootwess is awweady s-semi-tethewed"
+    >&2 echo "hint: t-to use t-tweaks o-on semi-tethewed, ʘwʘ specify t-the --tweaks option"
     exit 1;
 fi
 
 if [ "$tweaks" = 1 ] && [ ! -e ".tweaksinstalled" ] && [ ! -e ".disclaimeragree" ] && [ -z "$semi_tethered" ] && [ -z "$restorerootfs" ]; then
-    echo "!!! WARNING WARNING WARNING !!!"
-    echo "This flag will add tweak support BUT WILL BE TETHERED."
-    echo "THIS ALSO MEANS THAT YOU'LL NEED A PC EVERY TIME TO BOOT."
-    echo "THIS WORKS ON 15.0-16.3"
-    echo "DO NOT GET ANGRY AT US IF YOUR DEVICE IS BORKED, IT'S YOUR OWN FAULT AND WE WARNED YOU"
-    echo "DO YOU UNDERSTAND? TYPE 'Yes, do as I say' TO CONTINUE"
+    echo "!!! w-wawning w-wawning wawning !!!"
+    echo "this fwag wiww a-add tweak suppowt but w-wiww be tethewed."
+    echo "this awso m-means that you'ww nyeed a-a pc e-evewy t-time to boot."
+    echo "this wowks o-on 15.0-16.3"
+    echo do nyot g-get angwy a-at u-us i-if youw d-device i-is bowked, UwU i-it's y-youw own fauwt a-and we wawned y-you"
+    echo "do y-you u-undewstand? t-type 'Yes, do as I say' to continue"
     read -r answer
     if [ "$answer" = 'Yes, do as I say' ]; then
-        echo "Are you REALLY sure? WE WARNED YOU!"
-        echo "Type 'Yes, I am sure' to continue"
+        echo "awe y-you weawwy suwe? we wawned y-you!"
+        echo "type 'Yes, I am sure' to continue"
         read -r answer
         if [ "$answer" = 'Yes, I am sure' ]; then
-            echo "[*] Enabling tweaks"
+            echo "[*] enabwing tweaks :3"
             tweaks=1
             touch .disclaimeragree
         else
-            echo "[-] Please type it exactly if you'd like to proceed. Otherwise, remove --tweaks, or add --semi-tethered"
+            echo "[-] pwease t-type it exactwy if you wouwd wike to pwoceed. σωσ o-othewwise, w-wemove --tweaks, ow a-add --semi-tethewed"
             exit
         fi
     else
-        echo "[-] Please type it exactly if you'd like to proceed. Otherwise, remove --tweaks, or add --semi-tethered"
+        echo "[-] pwease t-type it exactwy if you wouwd wike to pwoceed. σωσ o-othewwise, w-wemove --tweaks, ow a-add --semi-tethewed"
         exit
     fi
 fi
 
 function _wait_for_device() {
     # Get device's iOS version from ideviceinfo if in normal mode
-    echo "[*] Waiting for devices"
+    echo "[*] waiting f-fow d-devices"
     while [ "$(get_device_mode)" = "none" ]; do
         sleep 1;
     done
-    echo $(echo "[*] Detected $(get_device_mode) mode device" | sed 's/dfu/DFU/')
+    echo $(echo "[*] detected $(get_device_mode) mode device" | sed 's/dfu/DFU/')
 
     if grep -E 'pongo|checkra1n_stage2|diag' <<< "$(get_device_mode)"; then
-        echo "[-] Detected device in unsupported mode '$(get_device_mode)'"
+        echo "[-] detected device in unsuppowted mode '$(get_device_mode)'"
         exit 1;
     fi
 
     if [ "$(get_device_mode)" != "normal" ] && [ -z "$version" ] && [ "$dfuhelper" != "1" ]; then
-        echo "[-] You must pass the version your device is on when not starting from normal mode"
+        echo "[-] you m-must p-pass t-the vewsion youw d-device i-is o-on when n-nyot stawting f-fwom n-nyowmaw m-mode"
         exit
     fi
 
     if [ "$(get_device_mode)" = "ramdisk" ]; then
-        # If a device is in ramdisk mode, perhaps iproxy is still running?
+        # I feel like ariez!
         _kill_if_running iproxy
-        echo "[*] Rebooting device in SSH Ramdisk"
+        echo "[*] webooting device i-in s-ssh wamdisk"
         if [ "$os" = 'Linux' ]; then
             sudo "$dir"/iproxy 6413 22 >/dev/null &
         else
@@ -528,31 +526,31 @@ function _wait_for_device() {
         version=${version:-$(_info normal ProductVersion)}
         arch=$(_info normal CPUArchitecture)
         if [ "$arch" = "arm64e" ]; then
-            echo "[-] meowc0ver doesn't, and never will, work on non-checkm8 devices"
+            echo "[-] meowra1n d-does n-nyot and n-nyevew w-wiww w-wowk on nyon-checkm8 devices"
             exit
         fi
-        echo "Hello, $(_info normal ProductType) on $version!"
+        echo "hewwo, $(_info normal ProductType) on $version!"
 
-        echo "[*] Switching device into recovery mode..."
+        echo "[*] switching device into wecovewy mode..."
         "$dir"/ideviceenterrecovery $(_info normal UniqueDeviceID)
         _wait recovery
     fi
 
     # Grab more info
-    echo "[*] Getting device info..."
+    echo "[*] getting device info..."
     cpid=$(_info recovery CPID)
     model=$(_info recovery MODEL)
     deviceid=$(_info recovery PRODUCT)
 
     if (( 0x8020 <= cpid )) && (( cpid < 0x8720 )); then
-        echo "[-] meowc0ver doesn't, and never will, work on non-checkm8 devices"
+        echo "[-] meowra1n does n-nyot, a-and n-nyevew wiww wowk o-on nyon-checkm8 d-devices"
         exit
     fi
 
     if [ "$dfuhelper" = "1" ]; then
-        echo "[*] Running DFU helper"
+        echo "[*] wunning dfu hewpew"
         _dfuhelper "$cpid" || {
-            echo "[-] Failed to enter DFU mode, trying again"
+            echo "[-] faiwed t-to e-entew dfu mode, rawr x3 t-twying a-again"
             sleep 3
             _wait_for_device
         }
@@ -590,7 +588,7 @@ function _wait_for_device() {
     if [ "$(get_device_mode)" != "dfu" ]; then
         recovery_fix_auto_boot;
         _dfuhelper "$cpid" || {
-            echo "[-] Failed to enter DFU mode, trying again"
+            echo "[-] faiwed t-to entew dfu m-mode, twying a-again"
             sleep 3
             _wait_for_device
         }
@@ -616,10 +614,10 @@ if [ ! -f blobs/"$deviceid"-"$version".der ]; then
 
     cd ramdisk
     chmod +x sshrd.sh
-    echo "[*] Creating ramdisk"
+    echo "[*] cweating w-wamdisk"
     ./sshrd.sh `if [[ "$version" == *"16"* ]]; then echo "16.0.3"; else echo "15.6"; fi` `if [ -z "$tweaks" ]; then echo "rootless"; fi`
 
-    echo "[*] Booting ramdisk"
+    echo "[*] booting wamdisk"
     ./sshrd.sh boot
     cd ..
     # remove special lines from known_hosts
@@ -647,7 +645,7 @@ if [ ! -f blobs/"$deviceid"-"$version".der ]; then
     touch .rd_in_progress
     
     if [ "$tweaks" = "1" ] && [ "$semi_tethered" = "1" ]; then
-        echo "[*] Testing for baseband presence"
+        echo "[*] testing fow b-baseband pwesence"
         if [ "$(remote_cmd "/usr/bin/mgask HasBaseband | grep -E 'true|false'")" = "true" ] && [[ "${cpid}" == *"0x700"* ]]; then
             disk=7
         elif [ "$(remote_cmd "/usr/bin/mgask HasBaseband | grep -E 'true|false'")" = "false" ]; then
@@ -674,16 +672,15 @@ if [ ! -f blobs/"$deviceid"-"$version".der ]; then
 
     has_active=$(remote_cmd "ls /mnt6/active" 2> /dev/null)
     if [ ! "$has_active" = "/mnt6/active" ]; then
-        echo "[!] Active file does not exist! Please use SSH to create it"
-        echo "    /mnt6/active should contain the name of the UUID in /mnt6"
-        echo "    When done, type reboot in the SSH session, then rerun the script"
+        echo "[!] active f-fiwe d-does n-nyot exist! rawr p-pwease use s-ssh t-to cweate it"
+        echo "    when done, t-type w-weboot in the s-ssh session, mya t-then wewun the s-scwipt"
         echo "    ssh root@localhost -p 6413"
         exit
     fi
     active=$(remote_cmd "cat /mnt6/active" 2> /dev/null)
 
     if [ "$restorerootfs" = "1" ]; then
-        echo "[*] Removing Jailbreak"
+        echo "[*] wemoving j-jaiwbweak"
         if [ ! "$fs" = "disk1s1" ] || [ ! "$fs" = "disk0s1s1" ]; then
             remote_cmd "/sbin/apfs_deletefs $fs > /dev/null || true"
         fi
@@ -692,12 +689,12 @@ if [ ! -f blobs/"$deviceid"-"$version".der ]; then
         remote_cmd "/bin/sync"
         remote_cmd "/usr/sbin/nvram auto-boot=true"
         rm -f BuildManifest.plist
-        echo "[*] Done! Rebooting your device (if it doesn't reboot, you may force reboot)"
+        echo "[*] done! webooting youw device, (˘ω˘) if i-it d-doesn't w-weboot, y-you may f-fowce weboot"
         remote_cmd "/sbin/reboot"
         exit;
     fi
 
-    echo "[*] Dumping apticket"
+    echo "[*] dumping a-apticket"
     sleep 1
     remote_cp root@localhost:/mnt6/$active/System/Library/Caches/apticket.der blobs/"$deviceid"-"$version".der
     #remote_cmd "cat /dev/rdisk1" | dd of=dump.raw bs=256 count=$((0x4000)) 
@@ -713,8 +710,8 @@ if [ ! -f blobs/"$deviceid"-"$version".der ]; then
             sleep 1
             remote_cmd "cp -a /mnt1/. /mnt8/"
             sleep 1
-            echo "[*] fakefs created, continuing..."
-            } || echo "[*] Using the old fakefs, run restorerootfs if you need to clean it" 
+            echo "[*] fakefs c-cweated, :3 c-continuing..."
+            } || echo "[*] using the owd fakefs, rawr wun westowewootfs i-if y-you nyeed t-to cwean it" 
         fi
     fi
 
@@ -731,7 +728,7 @@ if [ ! -f blobs/"$deviceid"-"$version".der ]; then
     fi
 
     # lets actually patch the kernel
-    echo "[*] Patching the kernel"
+    echo "[*] patching the k-kewnew"
     remote_cmd "rm -f /mnt6/$active/kpf"
     remote_cp binaries/kpf.ios root@localhost:/mnt6/$active/kpf
     remote_cmd "/usr/sbin/chown 0 /mnt6/$active/kpf"
@@ -751,13 +748,13 @@ if [ ! -f blobs/"$deviceid"-"$version".der ]; then
     _check_network_connection
 
     # download the kernel
-    echo "[*] Downloading BuildManifest"
+    echo "[*] downwoading buiwdmanifest"
     "$dir"/pzb -g BuildManifest.plist "$ipswurl"
 
-    echo "[*] Downloading kernelcache"
+    echo "[*] downwoading k-kewnewcache"
     "$dir"/pzb -g "$(awk "/""$model""/{x=1}x&&/kernelcache.release/{print;exit}" BuildManifest.plist | grep '<string>' | cut -d\> -f2 | cut -d\< -f1)" "$ipswurl"
     
-    echo "[*] Patching kernelcache"
+    echo "[*] patching kewnewcache"
     mv kernelcache.release.* work/kernelcache
     if [[ "$deviceid" == "iPhone8"* ]] || [[ "$deviceid" == "iPad6"* ]] || [[ "$deviceid" == *'iPad5'* ]]; then
         python3 -m pyimg4 im4p extract -i work/kernelcache -o work/kcache.raw --extra work/kpp.bin
@@ -792,9 +789,9 @@ if [ ! -f blobs/"$deviceid"-"$version".der ]; then
     sleep 1
     has_kernelcachd=$(remote_cmd "ls /mnt6/$active/System/Library/Caches/com.apple.kernelcaches/kernelcachd" 2> /dev/null)
     if [ "$has_kernelcachd" = "/mnt6/$active/System/Library/Caches/com.apple.kernelcaches/kernelcachd" ]; then
-        echo "[*] Custom kernelcache now exists!"
+        echo "[*] custom kewnewcache nyow e-exists!"
     else
-        echo "[!] Custom kernelcache doesn't exist..? Please send a log and report this bug..."
+        echo "[!] custom kewnewcache d-doesn't exist..? p-pwease send a wog a-and wepowt t-this b-bug..."
     fi
 
     if [ "$tweaks" = "1" ]; then
@@ -840,7 +837,7 @@ if [ ! -f blobs/"$deviceid"-"$version".der ]; then
         #     fi
         # fi
 
-        echo "[*] Copying files to rootfs"
+        echo "[*] copying f-fiwes t-to w-wootfs"
         remote_cmd "rm -rf /mnt$di/jbin /mnt$di/.installed_palera1n"
         sleep 1
         remote_cmd "mkdir -p /mnt$di/jbin/binpack /mnt$di/jbin/loader.app"
@@ -852,7 +849,7 @@ if [ ! -f blobs/"$deviceid"-"$version".der ]; then
         # download loader
         cd other/rootfs/jbin
         rm -rf loader.app
-        echo "[*] Downloading loader"
+        echo "[*] downwoading w-woadew"
         curl -LO https://static.palera.in/artifacts/loader/rootful/palera1n.ipa
         unzip palera1n.ipa -d .
         mv Payload/palera1nLoader.app loader.app
@@ -860,7 +857,7 @@ if [ ! -f blobs/"$deviceid"-"$version".der ]; then
         
         # download jbinit files
         rm -f jb.dylib jbinit jbloader launchd
-        echo "[*] Downloading jbinit files"
+        echo "[*] downwoading j-jbinit f-fiwes"
         curl -L https://static.palera.in/deps/rootfs.zip -o rfs.zip
         unzip rfs.zip -d .
         unzip rootfs.zip -d .
@@ -869,7 +866,7 @@ if [ ! -f blobs/"$deviceid"-"$version".der ]; then
 
         # download binpack
         mkdir -p other/rootfs/jbin/binpack
-        echo "[*] Downloading binpack"
+        echo "[*] downwoading binpack"
         curl -L https://static.palera.in/binpack.tar -o other/rootfs/jbin/binpack/binpack.tar
 
         sleep 1
@@ -896,7 +893,7 @@ if [ ! -f blobs/"$deviceid"-"$version".der ]; then
     rm .rd_in_progress
 
     sleep 2
-    echo "[*] Phase 1 done! Rebooting your device (if it doesn't reboot, you may force reboot)"
+    echo "[*] phase 1 d-done! mya webooting y-youw device, :3 if i-it doesn't w-weboot, you m-may f-fowce weboot"
     remote_cmd "/sbin/reboot"
     sleep 1
     _kill_if_running iproxy
@@ -905,18 +902,18 @@ if [ ! -f blobs/"$deviceid"-"$version".der ]; then
         _wait normal
         sleep 5
 
-        echo "[*] Switching device into recovery mode..."
+        echo "[*] switching device i-into w-wecovewy mode..."
         "$dir"/ideviceenterrecovery $(_info normal UniqueDeviceID)
     elif [ -z "$tweaks" ]; then
         _wait normal
         sleep 5
 
-        echo "[*] Switching device into recovery mode..."
+        echo "[*] switching device i-into w-wecovewy mode..."
         "$dir"/ideviceenterrecovery $(_info normal UniqueDeviceID)
     fi
     _wait recovery
     _dfuhelper "$cpid" || {
-        echo "[-] Failed to enter DFU mode, trying again"
+        echo "[-] faiwed to e-entew dfu mode, :3 t-twying again"
         sleep 3
         _wait_for_device
     }
@@ -973,14 +970,14 @@ if [ ! -f boot-"$deviceid"/ibot.img4 ]; then
             newipswurl=$(curl -sL https://api.appledb.dev/ios/iOS\;$buildid.json | "$dir"/jq -r .devices\[\"$deviceid\"\].ipsw)
         fi
 
-        echo "[*] Downloading BuildManifest"
+        echo "[*] downwoading buiwdmanifest"
         "$dir"/pzb -g BuildManifest.plist "$newipswurl"
 
-        echo "[*] Downloading and decrypting iBoot"
+        echo "[*] downwoading a-and d-decwypting iboot"
         "$dir"/pzb -g "$(awk "/""$model""/{x=1}x&&/iBoot[.]/{print;exit}" BuildManifest.plist | grep '<string>' | cut -d\> -f2 | cut -d\< -f1)" "$newipswurl"
         "$dir"/gaster decrypt "$(awk "/""$model""/{x=1}x&&/iBoot[.]/{print;exit}" BuildManifest.plist | grep '<string>' | cut -d\> -f2 | cut -d\< -f1 | sed 's/Firmware[/]all_flash[/]//')" ibot.dec
 
-        echo "[*] Patching and signing iBoot"
+        echo "[*] patching a-and s-signing iboot"
         "$dir"/iBoot64Patcher ibot.dec ibot.patched
 
         if [[ "$deviceid" == iPhone9,[1-4] ]]; then
@@ -1001,18 +998,18 @@ if [ ! -f boot-"$deviceid"/ibot.img4 ]; then
 
         touch boot-"$deviceid"/.payload
     else
-        echo "[*] Downloading BuildManifest"
+        echo "[*] downwoading b-buiwdmanifest"
         "$dir"/pzb -g BuildManifest.plist "$ipswurl"
 
-        echo "[*] Downloading and decrypting iBSS"
+        echo "[*] downwoading a-and d-decwypting i-ibss"
         "$dir"/pzb -g "$(awk "/""$model""/{x=1}x&&/iBSS[.]/{print;exit}" BuildManifest.plist | grep '<string>' | cut -d\> -f2 | cut -d\< -f1)" "$ipswurl"
         "$dir"/gaster decrypt "$(awk "/""$model""/{x=1}x&&/iBSS[.]/{print;exit}" BuildManifest.plist | grep '<string>' | cut -d\> -f2 | cut -d\< -f1 | sed 's/Firmware[/]dfu[/]//')" iBSS.dec
         
-        echo "[*] Downloading and decrypting iBoot"
+        echo "[*] downwoading and decwypting iboot"
         "$dir"/pzb -g "$(awk "/""$model""/{x=1}x&&/iBoot[.]/{print;exit}" BuildManifest.plist | grep '<string>' | cut -d\> -f2 | cut -d\< -f1)" "$ipswurl"
         "$dir"/gaster decrypt "$(awk "/""$model""/{x=1}x&&/iBoot[.]/{print;exit}" BuildManifest.plist | grep '<string>' | cut -d\> -f2 | cut -d\< -f1 | sed 's/Firmware[/]all_flash[/]//')" ibot.dec
 
-        echo "[*] Patching and signing iBSS/iBoot"
+        echo "[*] patching a-and signing i-ibss/iboot"
         "$dir"/iBoot64Patcher iBSS.dec iBSS.patched
         if [ "$semi_tethered" = "1" ]; then
             if [ "$serial" = "1" ]; then
@@ -1049,7 +1046,7 @@ fi
 sleep 2
 _pwn
 _reset
-echo "[*] Booting device"
+echo "[*] booting device"
 if [[ "$deviceid" == iPhone9,[1-4] ]] || [[ "$deviceid" == "iPhone10,"* ]]; then
     sleep 1
     "$dir"/irecovery -f boot-"$deviceid"/ibot.img4
@@ -1095,15 +1092,14 @@ fi
 rm -rf work rdwork
 echo ""
 echo "Done!"
-echo "The device should now boot to iOS"
-echo "When you unlock the device, it will respring about 30 seconds after"
-echo "If this is your first time jailbreaking, open the new palera1n app, then press Install"
-echo "Otherwise, press Do All in the settings section of the app"
-echo "If you have any issues, please first check the common-issues.md document for common issues"
+echo "the device shouwd nyow boot to ios"
+echo "when you unwock the d-device, >w< it wiww w-wespwing a-about 30 seconds aftew"
+echo "if this i-is youw f-fiwst t-time j-jaiwbweaking, open the p-pawewa1n app, rawr t-then p-pwess instaww"
+echo "othewwise, rawr p-pwess do a-aww i-in the settings s-section o-of the app"
 if [ "$china" != "1" ]; then
-	echo "fr china"
+	echo "china is a-awesome"
 fi
-echo "Enjoy!"
+echo "meow"
 
 } 2>&1 | tee logs/${log}
 
