@@ -1,8 +1,8 @@
 <h1  align="center">
-  <img  src="https://avatars.githubusercontent.com/u/124920598?s=400&u=20b77b2b9fca9702860f9f66b129ee5dde165987&v=4"  alt="VERY COOL CAT">
-  <p>meowc0ver</p>
+  <img  src="https://avatars.githubusercontent.com/u/111437912?v=4"  alt="VERY COOL CAT">
+  <p>meowra1n</p>
 </h1>
-<h3  align="center">A iOS 15.0-16.3 WIP, (semi-)tethered checkm8 jailbreak.</h3>
+<h3  align="center">the cutest jailbreak ever!</h3>
 
 # FAQ
 Why do you use palera1n's app and sources?
@@ -44,9 +44,9 @@ I will put it in basic words first it puts patches on ur kernel first time u run
 <br>
 Linux
 <br>
-semi-tethered: sudo ./meowc0ver.sh --tweaks iosversion --semi-tethered
+semi-tethered: sudo ./meowra1n.sh --tweaks iosversion --semi-tethered
 <br>
-tethered: sudo ./meowc0ver.sh --tweaks iosversion
+tethered: sudo ./meowra1n.sh --tweaks iosversion
 
 mac is same but without sudo
 
