@@ -28,7 +28,7 @@ I will put it in basic words first it puts patches on ur kernel first time u run
 - A Linux or macOS computer
 	- Python 3 must be installed.
 	- This must be a **physical computer**. Virtual machines **do not work.**
-	- amd cpus are dumb [with (likely) their USB controllers] that causes them to have a very low success rate with checkm8. It is not recommended that you use them with meowc0ver.
+	- amd cpus are dumb [with (likely) their USB controllers] that causes them to have a very low success rate with checkm8. It is not recommended that you use them with meowra1n.
 		- If your device does not successfully jailbreak, try a computer with an Intel or other CPU
 
 # Warning
@@ -37,7 +37,7 @@ I will put it in basic words first it puts patches on ur kernel first time u run
 # How to use?
 
 
-**NOTE: On linux usbmuxd has a issue and u need to do sudo systemctl stop usbmuxd && sudo usbmuxd -f -p in a second terminal and dont close that one while using meowc0ver**
+**NOTE: On linux usbmuxd has a issue and u need to do sudo systemctl stop usbmuxd && sudo usbmuxd -f -p in a second terminal and dont close that one while using meowra1n**
 <br>
 Linux
 <br>
